@@ -97,3 +97,12 @@ A2 -. Deserialization .-> A1
 ## Versions
 
 See the change log for more details.
+
+## License
+
+Licensed under either of:
+
+- Apache License, Version 2.0
+- MIT license
+
+at your option.

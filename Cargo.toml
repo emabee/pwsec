@@ -2,6 +2,14 @@
 name = "pwsec"
 version = "0.5.1"
 edition = "2021"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/emabee/pwsec"
+documentation = "https://docs.rs/pwsec"
+description = """
+Support for password-based encryption.
+"""
+
 
 [dependencies]
 base64 = "0.22"
