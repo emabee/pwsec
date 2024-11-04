@@ -32,12 +32,13 @@ flowchart LR
 
 A1{{Auth data}}
 A2[/Auth data/]
-C[/CipherB64/]
+C[/CipherB64:
+salt+ciphertext+nonce/]
 E[__ChachaB64::__
 __encrypt_auth__
 ]
-M{{Password}}
-P{{Secret}}
+P{{Password}}
+S{{Secret}}
 
 style E fill:#AAf,stroke:#333,stroke-width:3px
 
@@ -48,12 +49,12 @@ end
 
 subgraph Application Data
     A1
-    P
+    S
 end
-M
+P
 
-M --> E
-P -- Serialization --> E
+P --> E
+S -- Serialization --> E
 A1 -- Serialization --> E
 
 E --> C
@@ -67,11 +68,12 @@ flowchart RL
 
 A1{{Auth data}}
 A2[/Auth data/]
-C[/CipherB64/]
+C[/CipherB64:
+salt+ciphertext+nonce/]
 D[__ChachaB64::
 decrypt_auth__]
-M{{Password}}
-P{{Secret}}
+P{{Password}}
+S{{Secret}}
 
 style D fill:#AAf,stroke:#333,stroke-width:3px
 
@@ -82,12 +84,12 @@ end
 
 subgraph Application Data
     A1
-    P
+    S
 end
-M
+P
 
-M --> D
-D -- Deserialization --> P
+P --> D
+D -- Deserialization --> S
 A2 --> D
 
 C --> D
